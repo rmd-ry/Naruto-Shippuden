@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naruto Shippuden</title>
+  <link rel="stylesheet" href="Naruto Shippuden.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Naruto Shippuden</h1>
+        <div id="audio-container">
+          <audio id="audio1" src="KANA-BOON - Silhouette.mp3"></audio>
+          <audio id="audio2" src="Sign(MP3_320K).mp3"></audio>
+          <audio id="audio3" src="Hotarunohikari(MP3_320K).mp3"></audio>
+          <audio id="audio4" src="Blue Bird(MP3_320K).mp3"></audio>
+          <audio id="audio5" src="Closer(MP3_320K).mp3"></audio>
+          <audio id="audio6" src="Heaven-Shaking Event _ Vigorously(MP3_320K).mp3"></audio>
+          <audio id="audio7" src="Naruto Shippuden - Shutsujin (Departure to the Front Lines) - Extended(MP3_320K).mp3"></audio>
+          <audio id="audio8" src="Experienced Many Battles(MP3_320K).mp3"></audio>
+        </div>
+    </header>
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audioFiles = [
+      document.getElementById('audio1'),
+      document.getElementById('audio2'),
+      document.getElementById('audio3')
+    ];
+    
+    let currentIndex = 0;
+
+    function playNext() {
+      // Hentikan audio sebelumnya
+      if (audioFiles[currentIndex]) {
+        audioFiles[currentIndex].pause();
+        audioFiles[currentIndex].currentTime = 0;
+      }
+
+      // Pindah ke audio berikutnya
+      currentIndex = (currentIndex + 1) % audioFiles.length;
+
+      // Putar audio berikutnya
+      audioFiles[currentIndex].play();
+    }
+
+    // Event Listener: Mainkan lagu berikutnya saat lagu selesai
+    audioFiles.forEach(audio => {
+      audio.addEventListener('ended', playNext);
+    });
+
+    // Mulai memutar musik pertama
+    audioFiles[currentIndex].play();
+  });
+    </script>
+  <main class="character-container">
+    <div class="character-card">
+      <img src="Naruto PNG Picture.jpg" alt="Naruto Uzumaki">
+      <h2>Naruto Uzumaki</h2>
+      <p>Deskripsi karakter: Naruto adalah ninja dari Konoha dengan semangat pantang menyerah dan cita-cita menjadi Hokage.</p>
+    </div>
+
+    <div class="character-card">
+      <img src="sakura 2.jpg" alt="Sakura Haruno">
+      <h2>Sakura Haruno</h2>
+      <p>Deskripsi karakter: Sakura adalah ninja medis yang kuat dan teman dekat Naruto serta Sasuke.</p>
+    </div>
+
+    <div class="character-card">
+      <img src="sasuke 4.jpg" alt="Sasuke Uchiha">
+      <h2>Sasuke Uchiha</h2>
+      <p>Deskripsi karakter: Sasuke adalah ninja berbakat dari Klan Uchiha yang mencari kekuatan untuk membalas dendam.</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2024 Naruto Shippuden Fansite</p>
+  </footer>
+</body>
+</html>
